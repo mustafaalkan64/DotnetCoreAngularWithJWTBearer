@@ -1,0 +1,40 @@
+<h1>Edit Customer</h1>
+
+<form #f="ngForm" (ngSubmit)="submit()" novalidate>
+
+  <div class="form-group">
+    <label for="customerName">Name</label>
+    <input id="customerName" type="text" class="form-control" [(ngModel)]="customer.name" name="customerName" required #customerName="ngModel">
+    <div class="alert alert-danger" *ngIf="customerName.touched && !customerName.required && !customerName.valid">Customer Name is Required.</div>
+  </div>
+  <div class="form-group">
+    <label for="customerSurname">Surname</label>
+    <input id="customerSurname" type="text" class="form-control" [(ngModel)]="customer.surname" name="customerSurname" required
+      #customerSurname="ngModel">
+    <div class="alert alert-danger" *ngIf="customerSurname.touched && !customerSurname.required && !customerSurname.valid">Customer Surname is Required.</div>
+  </div>
+  <div class="form-group">
+    <label for="customerEmail">Email</label>
+    <input id="customerEmail" type="text" class="form-control" [(ngModel)]="customer.email" name="customerEmail" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+      #customerEmail="ngModel">
+    <div class="alert alert-danger" *ngIf="customerEmail.touched && !customerEmail.required  && !customerEmail.valid">Email is Required.</div>
+    <div class="alert alert-danger" *ngIf="customerEmail.touched && !customerEmail.hasError('pattern')  && !customerEmail.valid">Email is invalid.</div>
+  </div>
+  <div class="form-group">
+    <label for="customerPhoneNumber">Phone Number</label>
+    <input id="customerPhoneNumber" type="text" class="form-control" [(ngModel)]="customer.phoneNumber" name="customerPhoneNumber">
+  </div>
+  <div class="form-group">
+    <label for="customerAge">Age</label>
+    <input id="customerAge" type="number" class="form-control" [(ngModel)]="customer.age" name="customerAge">
+  </div>
+  <div class="form-group">
+    <label for="customerSalary">Salary</label>
+    <input id="customerSalary" type="number" class="form-control" [(ngModel)]="customer.salary" name="customerSalary">
+  </div>
+  <div class="form-group">
+    <label for="customerAddress">Address</label>
+    <input id="customerAddress" type="textarea" class="form-control" [(ngModel)]="customer.address" name="customerAddress">
+  </div>
+  <button class="btn btn-primary" [disabled]="!f.form.valid">Save</button>
+</form>

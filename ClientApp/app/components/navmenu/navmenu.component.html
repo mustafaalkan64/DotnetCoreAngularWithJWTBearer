@@ -1,0 +1,50 @@
+<div class='main-nav'>
+    <div class='navbar navbar-inverse'>
+        <div class='navbar-header'>
+            <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'>
+                <span class='sr-only'>Toggle navigation</span>
+                <span class='icon-bar'></span>
+                <span class='icon-bar'></span>
+                <span class='icon-bar'></span>
+            </button>
+            <a class='navbar-brand' [routerLink]="['/home']">AspnetCoreProject</a>
+        </div>
+        <div class='clearfix'></div>
+        <div class='navbar-collapse collapse'>
+            <ul class='nav navbar-nav'>
+                <li [routerLinkActive]="['link-active']">
+                    <a [routerLink]="['/home']">
+                        <span class='glyphicon glyphicon-home'></span> Home
+                    </a>
+                </li>
+                <li [routerLinkActive]="['link-active']">
+                    <a [routerLink]="['/counter']">
+                        <span class='glyphicon glyphicon-education'></span> Counter
+                    </a>
+                </li>
+                <li [routerLinkActive]="['link-active']">
+                    <a [routerLink]="['/fetch-data']">
+                        <span class='glyphicon glyphicon-th-list'></span> Fetch data
+                    </a>
+                </li>
+                <li *ngIf="ifAuthanticated()" [routerLinkActive]="['link-active']">
+                    <a [routerLink]="['/customer']">
+                            <span class='glyphicon glyphicon-th-list'></span> Customer
+                        </a>
+                </li>
+                <li *ngIf="!ifAuthanticated();then login else logout"></li>
+                <ng-template #logout>
+                  <li> <a class="btn btn-default" (click)="_logout()">
+                        <span class='glyphicon glyphicon-user'></span> Logout
+                     </a>
+                   </li>
+                </ng-template>
+                <ng-template #login>
+                    <li><a [routerLink]="['/login']">
+                            <span class='glyphicon glyphicon-th-list'></span> Login
+                        </a></li>
+                </ng-template>
+            </ul>
+        </div>
+    </div>
+</div>

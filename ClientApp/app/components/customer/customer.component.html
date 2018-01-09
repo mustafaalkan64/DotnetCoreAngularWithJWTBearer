@@ -1,0 +1,34 @@
+<h1>Customers</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+<p *ngIf="!customers"><em>Loading...</em></p>
+
+<button class="btn btn-primary" (click)="newCustomer()">New Customer</button>
+<table class='table' *ngIf="customers">
+    <thead>
+        <tr>
+            <!--<th>ID</th>-->
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Age</th>
+            <th>Salary</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let customer of customers">
+            <!--<td>{{ customer.id }}</td>-->
+            <td>{{ customer.name }}</td>
+            <td>{{ customer.surname }}</td>
+            <td>{{ customer.age }}</td>
+            <td>{{ customer.salary }}</td>
+            <td >
+                <div class="buttons">
+                    <button class="btn btn-success" (click)="editCustomer(customer.id)">Edit</button>
+                    <button class="btn btn-danger" (click)="deleteCustomer(customer.id)">Delete</button>
+                </div> 
+            </td>
+        </tr>
+    </tbody>
+</table>
