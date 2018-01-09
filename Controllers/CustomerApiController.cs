@@ -29,7 +29,7 @@ namespace AspnetCoreProject.Controllers
 
             // if (_context.Customers.Count() == 0)
             // {
-            //     _context.Customers.Add(new Customer { Name = "Mustafa", Surname = "Alkan", Address = "Bayraklı", Age = 31, Salary = 3500 });
+            //     _context.Customers.Add(new Customer { Name = "Mustafa", Surname = "Alkan", Age = 31 });
             //     _context.SaveChanges();
             // }
         }
